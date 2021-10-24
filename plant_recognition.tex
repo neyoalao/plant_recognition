@@ -14,7 +14,7 @@
 \title{Conference Paper Title*\\
 {\footnotesize \textsuperscript{*}Note: Sub-titles are not captured in Xplore and
 should not be used}
-\thanks{Identify applicable funding agency here. If none, delete this.}
+
 }
 
 \author{\IEEEauthorblockN{1\textsuperscript{st} Given Name Surname}
@@ -28,6 +28,7 @@ email address or ORCID}
 \maketitle
 
 \begin{abstract}
+\cite{pimm2015many}
 This document is a model and instructions for \LaTeX.
 This and the IEEEtran.cls file define the components of your paper [title, text, heads, etc.]. *CRITICAL: Do Not Use Symbols, Special Characters, Footnotes, 
 or Math in Paper Title or Abstract.
@@ -38,8 +39,20 @@ component, formatting, style, styling, insert
 \end{IEEEkeywords}
 
 \section{Introduction}
-This document is a model and instructions for \LaTeX.
-Please observe the conference page limits. 
+Identifying different species and types of plants growing in our natural habitat has long been an important task. However, these tasks have not been easy due to the abundance of plant species we have and the fact that many plants have a lot of similar characteristics. Therefore, experts in the field of agriculture have been trying to identify and document these plants correctly. But experts also find the task of identifying plant species difficult due to their abundance and characteristics.
+
+With many plants on the verge of going into extinction and the biodiversity at risk \cite{pimm2015many}, there has been an increase in the need to reduce the task of experts in plant species conservations to be able to identify plants as easy and less time consuming as possible. From a farmer’s point of view, it is crucial to have a system in place that can differentiate between desired plants and unwanted plants - weeds. The automatic detection and controlling of weeds with herbicides using robotics will allow for precise farming, which will, in turn, increase the yields from a planting season \cite{bah2018deep}. This exact treatment for plants with what they need can reduce farmers’ investment, potentially leading to greater profits. Precise use of herbicides on detected weeds can also contribute to a reduction in the environmental pollutions caused by the traditional way of spraying herbicides evenly across farmland.
+
+Recently, researchers have trialled the use of machine learning algorithms to identify plant species through leaf images. The use of this technique is possible since expert botanists often use leaf shape, colour and textures amongst other things for plant leaf classification task \cite{xiao2010hog, kadir2013leaf}. However, using computer vision which is a subset of machine learning, for this task has proven to be challenging \cite{kamilaris2018deep}. These challenges are due to the fact that the feature used for leaf identifications and classifications were handcrafted into these algorithms. Handcrafting these features meant that the algorithm did not learn how to do the classification job independently. Hence it is prone to the same errors expert botanists will make.
+
+As a solution to these challenges with using computer vision for leaf image classification, the use of deep learning techniques have been explored and have shown tremendous results. The success of deep learning has been attributed to the advancement in the capabilities of graphics processing units (GPU), which can now perform the computationally expensive tasks of deep learning at incredible speeds. The essential advantage of deep learning over the other traditional machine learning techniques is its ability to automatically extract critical features from the input data using the characteristics of its deep neural networks. Several research studies have shown that convolutional neural networks (CNN) are best suitable for image classification jobs out of the deep learning neural network types.
+
+On a positive note, deep learning models are currently helping millions of agricultural professionals and hobbyists in the correct plant species identification through mobile applications like Leafsnap and Pl@ntNet \cite{kumar2012leafsnap, get the one for plantvillage}.
+
+Thanks to the capabilities of CNN, a new dawn has been set in making the task of plant recognition relatively easy and robust for interested individuals.
+
+The rest of the paper is structured as follows.
+
 
 \section{Literature Review}
 
@@ -50,9 +63,32 @@ Please observe the conference page limits.
 
 
 \subsection{Deep Learning}\label{AA}
+
+In the past, image classifications workflows consist of processes like image pre-processing, feature extractions and finally classification with machine learning algorithms like support vector machine (SVM), random forest (RF), K-nearest neighbour (KNN), amongst others. The shape, colour, texture and vein were among the features extracted from the leaf images. Texture features were extracted using methods like local binary pattern, and Gabor filter  \cite{guo2010completed, li2010selection}. Shape and colour extraction techniques like scale space, discrete wavelet transform (DWT) and comparing the colour of images to predefined reference colours are used to extract these features \cite{satpute2016color}. However, the fact that there was no automation of this process made them impractical for broad adoption.
+
+Currently, deep learning methods, particularly CNN, are used to classify plants using leaf images.
+
+
+Deep learning is a model to learning for computers that have some of its bases on the understanding of how the human brain learns complex and straightforward things \cite{wang2017origin}.
+Out of the subset of machine learning, deep learning is the most active field \cite{angermueller2016deep}.
+
+\subsection{Convolutional Neural Network}
+Much interest in the use of CNN began when Geoffrey Hinton, Ilya Sutskever, and Alex Krizhevsky won the 2012 ImageNet Large Scale Visual Recognition Competition (ILSVRC) with a model trained using CNN architecture \cite{russakovsky2015imagenet}. Ever since then, different variations of CNN based models have evolved for the task of image classifications. Some of the very deep CNN architectures are AlexNet, GoogleNet, VGGNet, Inception ResNet, just to mention a few \cite{szegedy2013intriguing, simonyan2014very, szegedy2017inception}. A typical CNN architecture is made up of several stacks of layers. The initial layer is the convolutional layer, followed by pooling layers, activation layers, and finally, the fully connected layers \cite{}.
+
+The convolution layer takes care of extracting feature maps through mathematical calculations with weights and kernel - filters - as the input image is scanned through. 
+
+In the pooling layer, the size of the feature map from the previous layer is reduced by only keeping one representation of the values in a region. Typical approaches to pooling are max pooling and average pooling. Maximum pooling takes the maximum value in the specified region, while average pooling takes the average of the values in the neighbourhood.
+
+The extracted feature map is then passed through an activation function that ensures that there is no linearity in the network. Rectified linear unit (RELU) and sigmoid are typical examples of this function.
+
+Finally, the fully connected layer performs the classification 
+The fully connected layer classifies the output from the activation layer. The output of the fully connected layers is the different classifications that the architecture was able to make.
+
+This paper uses a pre-trained CNN architecture because it is a fact that characteristics learned in a pre-trained CNN model on large datasets can be fine-tuned for a totally new task \cite{}. Likewise, there is not enough diversity in the dataset for training a CNN model from scratch. Hence the reason for resolving to a pre-trained model - AlexNet and GoogleNet. 
+
+
 \subsection{Brief description of the architectures used (AlexNet, GoogleNet)}
 will talk about why I am using that
-
 
 \subsection{Dataset}
 will give a description of the dataset.\\
@@ -110,15 +146,8 @@ copy& More table copy$^{\mathrm{a}}$& &  \\
 \end{table}
 
 
-\begin{thebibliography}{00}
-\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
-\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
-\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
-\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
-\bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
-\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
-\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
-\end{thebibliography}
+\bibliographystyle{plain}
+\bibliography{references}
 \vspace{12pt}
 
 
