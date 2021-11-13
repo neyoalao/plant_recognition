@@ -84,17 +84,40 @@ The extracted feature map is then passed through an activation function that ens
 Finally, the fully connected layer performs the classification 
 The fully connected layer classifies the output from the activation layer. The output of the fully connected layers is the different classifications that the architecture was able to make.
 
-This paper uses a pre-trained CNN architecture because it is a fact that characteristics learned in a pre-trained CNN model on large datasets can be fine-tuned for a totally new task \cite{}. Likewise, there is not enough diversity in the dataset for training a CNN model from scratch. Hence the reason for resolving to a pre-trained model - AlexNet and GoogleNet. 
+This paper uses a pre-trained CNN architecture because it is a fact that characteristics learned in a pre-trained CNN model on large datasets can be fine-tuned for a totally new task \cite{}. Likewise, there is not enough diversity in the dataset for training a CNN model from scratch. Hence the reason for resolving to a pre-trained CNN architecture - AlexNet and ResNet. 
 
 
-\subsection{Brief description of the architectures used (AlexNet, GoogleNet)}
-will talk about why I am using that
+\subsection{CNN Architectures used (AlexNet, Resnet-34)}
+The paper used the Alexnet and ResNet-34 architectures for training the model in the experiment.
+
+Alexnet is a CNN architecture introduced by \cite{krizhevsky2012imagenet}. Alexnet architecture consists of 8 weight layers: 5 convolutional layers and 3 fully connected layers. The first, second and fifth convolutional layers are each followed by normalisation and a max-pooling layer. The first convolutional layer filters the input image with 96 kernels of 11 x 11 in size and a stride of 4 pixels. The second layer filters the input of the first convolutional layer with 256 kernels of size 5 x 5 and a stride of 1 pixel. The third, fourth, and fifth convolutional layers have 384, 256 and 384 kernels with sizes 3 x 3. The fully connected layers have 4,096 neurons each, and the RELU non-linearity function is applied to the output layers and that of convolutional layers.
+The pre-trained network of Alexnet on the ImageNet dataset can be used to classify images into 1000 object categories.
+
+Likewise, the Resnet-34 architecture is a CNN network with 34 deeper weight layers introduced by \cite{he2016deep}. The Resnet architecture turns a plain neural network (VGG nets but with fewer filters and lower complexity) into a residual network by inserting shortcut connections between the original network layers. The shortcut connections fix the vanishing gradient problem in the deep CNN network by creating an alternative bypass for the gradient by adding outputs from previous layers to that of the stack layers. Figure x shows the network architecture of Restnet in comparison with that of plain CNN.
+
 
 \subsection{Dataset}
-will give a description of the dataset.\\
+The paper performed the experiments using 2 standard datasets; Swedish leaf \cite{soderkvist2001computer} and AgrilPlant \cite{pawara2017comparing}.
+
+\subsubsection{Swedish Leaf Dataset}
+For plant recognition researches, \cite{soderkvist2001computer} published the Swedish leaf dataset. This dataset consists of 1125 leaf images from 15 different plant species classes. Thus, each plant species contains precisely 75 images. The tree classes are Ulmus carpinifolia, Acer, Salix aurita, Quercus, Alnus incana, Betula pubescens, Salix alba 'Sericea', Populus tremula, Ulmus glabra, Sorbus aucuparia, Salix sinerea, Populus, Tilia, Sorbus intermedia, Fagus silvatica. The leaf images of each plant species were in a laboratory on a white background. Figure x shows sample images from the Swedish leaf dataset.
 
 
+\subsubsection{AgrilPlant Dataset}
+ \cite{pawara2017comparing} introduced the AgrilPlant dataset for plant recognition tasks. This dataset consists of precisely 300 images of 10 classes of plant, amounting to a total of 3000 images. Flickr website is the source of the images in this dataset. The images may contain the landscape of the entire plant, branch, leaf, fruit and flower. The Agrilplant dataset is very challenging because of the following reasons:
+ 
+ \begin{itemize}
+     \item There are similarities among some classes, i.e. apple, orange, and persimmon, which have similar shapes and colours.
+     \item There is a diversity of plants within the same class. For example, there are green and red apples, or there are varieties of tulips.
+     \item The images contain varieties of objects in the background not relevant to the recognition task. These background noises are from the outdoor environments where the images were taken.
+     \item There is a similarity among some classes. For example, apple, orange, and persimmon images consist of similar shapes and colours.
 
+Figure x shows sample images from the AgrilPlant dataset.
+
+ \end{itemize}
+
+\subsection{Hardware and software}
+The paper used Jupyter Notebooks \cite{kluyver2016jupyter} running Python 3 kernels with the PyTorch \cite{paszke2017automatic} and fast.ai \cite{howard2018fastai} libraries for training and evaluating the CNN models on a Linux server with 32 GB of RAM and a GTX 1080 GPU with 8 GB of RAM.
 
 \section{Results}
 will present the result without explaining why\\
