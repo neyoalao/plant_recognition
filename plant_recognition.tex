@@ -72,17 +72,24 @@ Currently, deep learning methods, particularly CNN, are used to classify plants 
 Deep learning is a model to learning for computers that have some of its bases on the understanding of how the human brain learns complex and straightforward things \cite{wang2017origin}.
 Out of the subset of machine learning, deep learning is the most active field \cite{angermueller2016deep}.
 
-\subsection{Convolutional Neural Network}
-Much interest in the use of CNN began when Geoffrey Hinton, Ilya Sutskever, and Alex Krizhevsky won the 2012 ImageNet Large Scale Visual Recognition Competition (ILSVRC) with a model trained using CNN architecture \cite{russakovsky2015imagenet}. Ever since then, different variations of CNN based models have evolved for the task of image classifications. Some of the very deep CNN architectures are AlexNet, GoogleNet, VGGNet, Inception ResNet, just to mention a few \cite{szegedy2013intriguing, simonyan2014very, szegedy2017inception}. A typical CNN architecture is made up of several stacks of layers. The initial layer is the convolutional layer, followed by pooling layers, activation layers, and finally, the fully connected layers \cite{}.
+\subsection{Convolutional Neural Networks}
+Convolutional neural networks are a type of neural network in DL that is designed for processing grid-like or multi-array kinds of data \cite{lecun2015deep,goodfellow2016deep}. These kinds of neural networks typically consist of an input image, convolution, pooling and fully connected layers. The networks architecture of CNN allows them to train on deep layered data structures at a fast pace and robust in the correct classification of images \cite{nielsen2015neural}. The achievement of these capabilities are possible through the use of four essential components - the use of many layers, local connections, shared weights, and pooling \cite{lecun2015deep}.
 
-The convolution layer takes care of extracting feature maps through mathematical calculations with weights and kernel - filters - as the input image is scanned through. 
+\subsubsection{Convolutional layer}
+This layer performs mathematical operations on the input image to extract the so-called feature map by using a filter - kernel \cite{goodfellow2016deep}. The feature map is obtained by summing results gathered from the multiplication of pixel by pixel value and kernel values as the function scans the image from the top left corner down to the bottom right of the picture. This operation results in a smaller size version of the input image. Figure 2 shows a representation of this operation.
 
-In the pooling layer, the size of the feature map from the previous layer is reduced by only keeping one representation of the values in a region. Typical approaches to pooling are max pooling and average pooling. Maximum pooling takes the maximum value in the specified region, while average pooling takes the average of the values in the neighbourhood.
+A padding operation of the original pixel matrix is done to ensure that all pixels, mainly the corner pixels in the input image, participate in multiple convolution/feature detection operations. This is typically achieved by adding arbitrary numbers of pixels around the boundaries of the original image. For example, padding of two translates to adding two extra pixels around the borders of the original image matrix. The scanning of the image pixels is called stride, i.e. the number of pixels the filter moves over the input image pixels. For example, a stride value of 3 means that the filter moves by 3 pixels over the image.
 
-The extracted feature map is then passed through an activation function that ensures that there is no linearity in the network. Rectified linear unit (RELU) and sigmoid are typical examples of this function.
 
-Finally, the fully connected layer performs the classification 
-The fully connected layer classifies the output from the activation layer. The output of the fully connected layers is the different classifications that the architecture was able to make.
+\subsubsection{Pooling layer}
+The pooling layer is the next layer after the convolution layer. The reduction of features extracted from convolutional operations performed in the preceding layer occurs in the pooling layer. Max pooling operation chooses the maximum value within a rectangular quarter while average pooling takes the average of the values in each area \cite{goodfellow2016deep}.
+Achieving non-linearity in the learned networks is made possible by an activation function.
+An activation function is a function that ensures non-linearity in the networks by determining the activation of neurons in the convolutional and pooling layer \cite{nielsen2015neural}. Rectified Linear Unit (ReLU) is the most commonly used activation function in CNN.
+
+
+
+\subsubsection{Fully Connected Layer}
+Recognition and classification of extracted data from previous layers occur in this layer. In this layer, the neurons direct connections to all activated neurons in the pooling layers. The outputs in this layer result from the direct connection to all activated neurons in the max pooled layer. Figure 2 shows an overview of the layers in a general CNN architecture.
 
 This paper uses a pre-trained CNN architecture because it is a fact that characteristics learned in a pre-trained CNN model on large datasets can be fine-tuned for a totally new task \cite{}. Likewise, there is not enough diversity in the dataset for training a CNN model from scratch. Hence the reason for resolving to a pre-trained CNN architecture - AlexNet and ResNet. 
 
