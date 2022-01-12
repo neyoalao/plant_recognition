@@ -92,7 +92,7 @@ This paper uses a pre-trained CNN architecture because characteristics learned i
 
     \begin{figure}[htbp]
         \centerline{\includegraphics[scale=0.25]{figures/Screenshot 2021-11-24 at 14.35.12.png}}
-        \caption{Screenshot showing an overview of the convolutional and full-connected layers in CNN architecture and the oupt of each layer on the input image \cite{soderkvist2001computer}}
+        \caption{Screenshot showing an overview of the convolutional and full-connected layers in CNN architecture and the oupt of each layer on the input image \cite{soderkvist2001computer}.}
 
         \label{fig:train_gate}
     \end{figure}
@@ -110,7 +110,7 @@ There are different variants of the ResNet architecture. The number in each vari
 
     \begin{figure}[ht!]
         \centerline{\includegraphics[scale=0.32]{figures/Screenshot 2021-12-16 at 17.28.47.png}}
-        \caption{Screenshot showing an overview of ResNet-34 architecture in comparison with plain CNN architecture \cite{he2016deep}}
+        \caption{Screenshot showing an overview of ResNet-34 architecture in comparison with plain CNN architecture \cite{he2016deep}.}
 
         \label{fig:resnet}
     \end{figure}
@@ -155,14 +155,14 @@ Figure \ref{fig:agrilplant} shows sample images from the AgrilPlant dataset.
     
 
 \subsection{Hardware, Software and Parameter settings}
-The paper used Jupyter Notebooks \cite{kluyver2016jupyter} running Python 3 kernels with the PyTorch \cite{paszke2017automatic} and fast.ai \cite{howard2018fastai} libraries for training and evaluating the CNN models on a Linux server with 32 GB of RAM and a GTX 1080 GPU with 8 GB of RAM.
+The paper used Jupyter Notebooks \cite{kluyver2016jupyter} running Python 3 kernels with the PyTorch \cite{paszke2017automatic} and fast.ai \cite{howard2018fastai} libraries for training and evaluating the CNN models on an Ubuntu 20.04.3 LTS Linux distribution server with 2x AMD EPYC 7452 32-Core Processor, 1 TB of RAM, 7x Nvidia A100-PCI-E-40GB and 1x Nvidia Quadro RTX 5000 graphic cards.
 
 In the experiment, all images in the dataset were rescaled to 256 x 256 pixels for better classification and part localisation. The paper used Adam \cite{kingma2014adam} for optimising the models, learning rate of 0.001, 80\% of the dataset for training and 20\% for testing. Each pre-trained CNN architecture was trained for five epochs on the dataset.
 
     \begin{figure*}
     
         \centerline{\includegraphics[width=1\textwidth]{figures/agrilplant-image.jpeg}}
-        \caption{Screenshot showing sample images from the classes in the AgrilPlant dataset \cite{pawara2017comparing}}
+        \caption{Screenshot showing sample images from the classes in the AgrilPlant dataset \cite{pawara2017comparing}.}
 
         \label{fig:agrilplant}
     \end{figure*}
